@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css">
+<style>
+body {
+  font-family: arial;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  background-color: #ab2d29;
+}
+.container {
+  padding: 40px;
+  width: 500px;
+  margin: 20px auto;
+  background-color: white;
+}
+.container h2 {
+  text-align: center;
+}
+fieldset {
+  border: 1px solid #d4d4d4;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+.input-field {
+  display: flex;
+  margin-bottom: 15px;
+}
+label {
+  margin-right: 25px;
+  margin-top: 5px;
+  width: 30%;
+  text-align: right;
+  font-weight: bold;
+}
+.icon {
+  background: #fcfcfa;
+  color: black;
+  min-width: 40px;
+  border: 2px solid #e2e2e2;
+  border-right: none;
+  text-align: center;
+  padding: 7px;
+}
+.inputs {
+  padding: 3px 10px;
+  border: 2px solid #e2e2e2;
+  width: 70%;
+}
+.input[type="radio"] {
+  margin-right: 10px;
+}
+.textarea {
+  padding: 8px;
+  border: 2px solid #e2e2e2;
+}
+.textarea-icon {
+  padding-top: 14px;
+}
+.button {
+  text-align: center;
+}
+.submit,
+.reset {
+  color: white;
+  padding: 9px 25px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #c9c9c9;
+}
+.submit:hover {
+  background: #ee9a25;
+}
+.reset {
+  background: #c93232;
+}
+.reset:hover {
+  background: #a32727;
+}
+.city,
+.gender,
+.courses,
+.message {
+  margin-left: -30px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>MCA Registration<br>Form</h2>
+  <form action="">
+    <fieldset>
+      <div class="input-field">
+        <label>Name</label>
+        <input type="text" class="inputs" name="usrname">
+      </div>
+      <div class="input-field">
+        <label>Father's name</label>
+        <input type="text" class="inputs" name="usrname">
+      </div>
+      <div class="input-field">
+        <label>Mother's name</label>
+        <input type="text" class="inputs" name="usrname">
+      </div>
+      <div class="input-field">
+        <label>Email</label>
+        <input type="email" class="inputs">
+      </div>
+      <div class="input-field">
+        <label class="gender">Gender</label>
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female"> Female
+      </div>
+      <div class="input-field">
+        <label>Password</label>
+        <input type="password" class="inputs">
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="input-field">
+        <label class="message">Address</label>
+        <textarea class="textarea"></textarea>
+      </div>
+      <div class="input-field">
+        <label class="city">State</label>
+        <select name="city" id="" class="inputs">
+          <option value="0">Select City</option>
+          <option value="1">Kerala</option>
+          <option value="2">Tamil Nadu</option>
+          <option value="3">Karnataka</option>
+          <option value="4">Jammu & Kashmir</option>
+          <option value="5">Himachal Pradesh</option>
+        </select>
+      </div>
+      <div class="input-field">
+        <label>Zip code</label>
+        <input type="number" class="inputs">
+      </div>
+      <div class="input-field">
+        <label>Phone No</label>
+        <input type="number" class="inputs">
+      </div>
+      <div class="input-field">
+        <label class="courses">Extra-curricular<br>Activities</label>
+        <input class="" type="checkbox" value="ms">Music
+        <input class="" type="checkbox" value="ss">Sports
+        <input class="" type="checkbox" value="art">Art
+        <input class="" type="checkbox" value="dn">Dance
+      </div>
+    </fieldset>
+    <div class="button">
+      <button type="submit" class="submit">Submit</button>
+      <button type="reset" class="reset">Reset</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

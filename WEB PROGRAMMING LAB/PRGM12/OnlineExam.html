@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .quiz-container {
+            width: 90%;
+            max-width: 700px;
+            padding: 20px;
+            border: 5px solid #7f34db;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; 
+            margin-bottom: 20px; 
+        }
+        h2 {
+            color: #7f34db;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question p {
+            font-weight: bold; 
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #7f34db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #7f34db;
+        }
+    </style>
+</head>
+<body>
+<div class="quiz-container">
+    <h2>General Knowledge</h2>
+    <div class="question" id="question1">
+        <p>1. 'OS' computer abbreviation means?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q1" value="a"> Order of Significance</label></li>
+            <li><label><input type="radio" name="q1" value="b"> Open Software</label></li>
+            <li><label><input type="radio" name="q1" value="c"> Operating System</label></li>
+            <li><label><input type="radio" name="q1" value="d"> Optical Sensor</label></li>
+        </ul>        
+    </div>
+    <div class="question" id="question2">
+        <p>2. Exposure to sunlight helps a person to improve his health because?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q2" value="a"> The infrared light kills bacteria in the body</label></li>
+            <li><label><input type="radio" name="q2" value="b"> Resistance power increases</label></li>
+            <li><label><input type="radio" name="q2" value="c"> The pigment cells in the skin get stimulated and produce a healthy tan</label></li>
+            <li><label><input type="radio" name="q2" value="d"> The UV rays convert skin oil into Vitamin D</label></li>
+        </ul>        
+    </div>
+    <div class="question" id="question3">
+        <p>3. What is the largest mammal on Earth?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q3" value="a"> Elephant</label></li>
+            <li><label><input type="radio" name="q3" value="b"> Blue Whale</label></li>
+            <li><label><input type="radio" name="q3" value="c"> Giraffe</label></li>
+            <li><label><input type="radio" name="q3" value="d"> Dolphin</label></li>
+        </ul>        
+    </div>
+    <div class="question" id="question4">
+        <p>4. Capital city of Japan?</p>
+        <ul class="options">
+            <li><label><input type="radio" name="q4" value="a"> Seoul</label></li>
+            <li><label><input type="radio" name="q4" value="b"> Bangkok</label></li>
+            <li><label><input type="radio" name="q4" value="c"> Tokyo</label></li>
+            <li><label><input type="radio" name="q4" value="d"> Beijing</label></li>
+        </ul>        
+    </div>
+    <button onclick="submitQuiz()">Submit Answers</button>
+</div>
+<script>
+    function submitQuiz() {
+        const answer1 = document.querySelector('input[name="q1"]:checked').value;
+        const answer2 = document.querySelector('input[name="q2"]:checked').value;
+        const answer3 = document.querySelector('input[name="q3"]:checked').value;
+        const answer4 = document.querySelector('input[name="q4"]:checked').value;
+
+        if (!answer1 || !answer2 || !answer3 || !answer4) {
+            alert("Please answer all questions before submitting.");
+            return;
+        }
+        let score = 0;
+        if (answer1 === 'c') score++;
+        if (answer2 === 'd') score++;
+        if (answer3 === 'b') score++;
+        if (answer4 === 'c') score++;
+
+        const correctAnswers = {
+            q1: 'c',
+            q2: 'd',
+            q3: 'b',
+            q4: 'c'  
+        };
+        let resultMessage = `Your score is ${score} out of 4.\n\nCorrect answers:\n`;
+        for (const question in correctAnswers) {
+            resultMessage += `${question}: ${correctAnswers[question]}\n`;
+        }
+        if (score === 4) {
+            resultMessage += "\nCongratulations!! All answers are correct!!";
+        } else {
+            resultMessage += "\nNice try! Keep practicing to improve your score.";
+        }
+        alert(resultMessage);
+    }
+</script>
+</body>
+</html>
