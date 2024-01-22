@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #EFEFEF;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .error-message {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <form id="registration-form" method="post" onsubmit="return validateform()">
+    <h1>Registration Form</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+
+    <label for="confirm-password">Confirm Password:</label>
+    <input type="password" id="confirm-password" name="confirm-password">
+    <br>
+    <span class="error-message" id="error-message"></span>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    function validateform() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm-password").value;
+      var errorMessage = "";
+      if (name == "") {
+        errorMessage += "Name is required.\n";
+      }
+      if (email == "") {
+        errorMessage += "Email is required.\n";
+      } else {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          errorMessage += "Invalid email address.\n";
+        }  }
+      if (password == "") {
+        errorMessage += "Password is required.\n";
+      } else {
+        if (password.length < 8) {
+          errorMessage += "Password should have at least 8 characters.\n";
+        } }
+      if (password != confirmPassword) {
+        errorMessage += "Passwords do not match.\n";
+      }
+      if (errorMessage != "") {
+        document.getElementById("error-message").innerHTML = errorMessage;
+        return false; }
+      return true;
+    }
+  </script>
+</body>
+</html>

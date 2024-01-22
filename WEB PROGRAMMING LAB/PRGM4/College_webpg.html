@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webpage</title>
+<style>
+.header {
+  text-align: center;
+  padding: 20px;
+  font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+  color: #ff1100;
+}
+
+.video-container {
+  text-align: center;
+  padding: 20px;
+}
+.video-container iframe {
+  max-width: 100%;
+}
+
+.container {
+  padding: 2px 16px;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+<div class="header">
+</div>
+<div class="video-container">
+  <!-- Replace the image with the YouTube video and add the autoplay attribute -->
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/BKMCbgTd2Jg" frameborder="0" allowfullscreen></iframe>
+</div>
+</body>
+</html>

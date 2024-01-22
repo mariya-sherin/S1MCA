@@ -1,0 +1,10 @@
+.parent.absolute {
+    position: relative;
+  }
+  
+  .absolute .three {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
