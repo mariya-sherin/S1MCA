@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int a[50], n;
 int l_search(int x) {
     for (int i = 0; i < n; i++) {
@@ -9,6 +8,7 @@ int l_search(int x) {
     }
     return -1;
 }
+
 int b_search(int x) {
     int b = 0, l = n - 1, m;
     while (b <= l) {
@@ -33,56 +33,51 @@ void bubble_sort() {
         }
     }
 }
-void display_array() {
-    printf("Sorted array: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", a[i]);
-    }
-    printf("\n");
-}
-void main() {
+int main() {
     int ch, x, p;
-    printf("Enter the size of the array : ");
+    
+    printf("Enter the size of the array: ");
     scanf("%d", &n);
-    printf("Enter array : ");
+
+    printf("Enter array: ");
     for (int i = 0; i < n; i++) {
         scanf("%d", &a[i]);
     }
 
+    bubble_sort();
+
     do {
-        printf("1. Sort\n2. Linear Search\n3. Binary Search\n4. Exit\nEnter your choice (1-4) : ");
-        scanf("%d", &ch);
+        printf("Select the searching method:\n1. Linear Search\n2. Binary Search\n3. Exit\nEnter your choice (1-3): ");
+        if (scanf("%d", &ch) != 1) {
+            printf("Invalid input. Please enter a number.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+
         switch (ch) {
             case 1:
-                bubble_sort();
-                display_array();
-                printf("Array sorted successfully.\n");
-                break;
-            case 2:
-                printf("Enter the element to be searched : ");
+                printf("Enter the element to be searched: ");
                 scanf("%d", &x);
                 p = l_search(x);
-                if (p == -1) {
-                    printf("Element not found\n");
-                } else {
-                    printf("Element found at position %d\n", p + 1);
-                }
                 break;
-            case 3:
-                printf("Enter the element to be searched : ");
+            case 2:
+                printf("Enter the element to be searched: ");
                 scanf("%d", &x);
                 p = b_search(x);
-                if (p == -1) {
-                    printf("Element not found\n");
-                } else {
-                    printf("Element found at position %d\n", p + 1);
-                }
                 break;
-            case 4:
-                printf("Exiting the program. Thank you!\n");
+            case 3:
                 break;
             default:
-                printf("Invalid choice. Please enter a number between 1 and 4.\n");
+                printf("Invalid choice\n");
+                continue;
         }
-    } while (ch != 4);
+
+        if (p == -1) {
+            printf("Element not found\n");
+        } else {
+            printf("Element found at position %d\n", p + 1);
+        }
+    } while (ch != 3);
+
+    return 0;
 }
