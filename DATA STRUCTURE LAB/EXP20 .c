@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 const int inf = 99999;
 int k, a, b, u, v, n, e = 1, mincost = 0, s[9] = {0}, G[50][50];
+
 int find(int i) {
     while (s[i] != 0)
         i = s[i];
     return i;
 }
+
 int combine(int i, int j) {
     if (i != j) {
         s[j] = i;
@@ -14,6 +17,7 @@ int combine(int i, int j) {
     }
     return 0;
 }
+
 void kruskals() {
     while (e < n) {
         int min = inf;
@@ -29,7 +33,7 @@ void kruskals() {
         u = find(u);
         v = find(v);
         if (combine(u, v) != 0) {
-            printf("%d\t%d\t:\t%d\n", a, b, min);
+            printf("Edge between vertex %d and vertex %d has cost %d\n", a, b, min);
             mincost += min;
         }
         G[a][b] = G[b][a] = 99999;
@@ -37,7 +41,8 @@ void kruskals() {
     }
     printf("Minimum cost = %d\n", mincost);
 }
-void main() {
+
+int main() {
     printf("Enter the number of vertices : ");
     scanf("%d", &n);
     printf("Enter the cost matrix: ");
@@ -49,7 +54,9 @@ void main() {
             }
         }
     }
-    printf("Edge\t:\tCost\n");
-    
+    printf("Edges and their Costs:\n");
+
     kruskals();
+
+    return 0;
 }
